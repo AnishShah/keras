@@ -957,6 +957,10 @@ def relu(x, alpha=0., max_value=None):
     return x
 
 
+def gelu(x):
+    return T.mul(x, T.erfc(-x / T.sqrt(2.)) / 2.)
+
+
 def softmax(x):
     return T.nnet.softmax(x)
 

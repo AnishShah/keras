@@ -1363,6 +1363,10 @@ def elu(x, alpha=1.):
         return tf.select(x > 0, res, alpha*res)
 
 
+def gelu(x):
+    return tf.mul(x, tf.erfc(-x / tf.sqrt(2.)) / 2.)
+
+
 def softmax(x):
     '''Softmax of a tensor.
     '''

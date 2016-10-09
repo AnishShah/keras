@@ -262,3 +262,17 @@ class SReLU(Layer):
                   'a_right_init': self.a_right_init}
         base_config = super(SReLU, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
+
+
+class GELU(Layer):
+
+    def __init__(self, **kwargs):
+        self.supports_masking = True
+        super(GELU, self).__init__(**kwargs)
+
+    def call(self, x, mask=None):
+        return K.gelu(x)
+
+    def get_config(self):
+        base_config = super(GELU, self).get_config()
+        return base_config
